@@ -1,0 +1,19 @@
+{% extends "template.twig" %}
+{% block title %}Admin{% endblock %}
+{% block section %}edit{% endblock %}
+{% block content %}
+    <form method="post">
+        <input type="text" name="pn" id="pn" placeholder="Part Number" value="{{ part.pn }}" required />
+        <select name="source">
+            <option value="other" {% if part.source == 'other' %}selected{% endif %}>Other</option>
+            <option value="mouser" {% if part.source == 'mouser' %}selected{% endif %}>Mouser</option>
+            <option value="digikey" {% if part.source == 'digikey' %}selected{% endif %}>Digikey</option>
+        </select>
+        <input type="text" name="source_pn" id="source_pn" placeholder="Source P/N" value="{{ part.source_pn }}" required />
+        <input type="text" name="description" id="description" placeholder="Description" value="{{ part.description }}" />
+        <input type="text" name="manufacturer" id="manufacturer" placeholder="Manufacturer" value="{{ part.manufacturer }}" />
+        <input type="number" name="quantity" id="quantity" placeholder="Quantity" pattern="\d+" value="{{ part.quantity }}" required />
+        <input type="submit" value="Update Component" />
+    {{ csrf|raw }}</form>
+    <a href="/admin/edit-part/{{ part.id }}/delete">Delete this?</a>
+{% endblock %}

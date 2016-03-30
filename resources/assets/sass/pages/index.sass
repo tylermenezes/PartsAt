@@ -1,0 +1,51 @@
+body.index
+    table.parts
+        display: block
+        width: 100%
+        &:after
+            content: ""
+            display: block
+            clear: both
+        thead
+            display: none
+        tbody
+            display: block
+            tr
+                border: 1px solid $color-accent
+                border-radius: 3px
+                display: block
+                width: 18%
+                height: 10rem
+                margin-right: 2%
+                margin-bottom: 1rem
+                float: left
+                td
+                    display: block
+                    &.pn
+                        font-size: 1.5rem
+                        text-align: center
+                        background-color: $color-accent
+                        color: $color-white
+                    &.source-pn, &.manufacturer
+                        text-align: center
+                        border-bottom: 1px solid $color-accent
+                        text-transform: uppercase
+                        font-size: 0.8rem
+                        height: 1rem
+                        overflow: hidden
+                    &.quantity
+                        width: 48%
+                        display: inline-block
+                        padding: 1rem 0 1rem 0.25rem
+                        &:after
+                            content: " in stock"
+                    &.location
+                        width: 48%
+                        display: inline-block
+                        text-align: right
+                        padding: 1rem 0.25rem 1rem 0
+                    &.description
+                        padding: 1rem 0.25rem 0
+                        height: 4rem
+                        text-align: center
+                        overflow: hidden

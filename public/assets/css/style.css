@@ -1,0 +1,148 @@
+body, html {
+  padding: 0;
+  margin: 0; }
+
+* {
+  box-sizing: border-box; }
+
+a {
+  color: inherit; }
+
+section.content form input[type="text"], section.content form select, section.content form input[type="number"] {
+  width: 100%;
+  margin-bottom: 0.4rem;
+  border: none;
+  border-bottom: 1px solid #333;
+  padding: 0.5rem; }
+section.content form input[type="submit"] {
+  float: right;
+  padding: 0.5rem;
+  color: #fff;
+  background-color: #333;
+  border: none; }
+
+body > header {
+  margin: 0;
+  background-color: #333; }
+  body > header div {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    color: #fff; }
+    body > header div h1 {
+      float: left;
+      font-size: 1.5rem; }
+      body > header div h1 a {
+        text-decoration: none; }
+    body > header div nav {
+      float: right; }
+      body > header div nav ul {
+        padding: 0;
+        margin: 0.2rem; }
+        body > header div nav ul li {
+          padding: 1rem 0;
+          list-style-type: none;
+          display: inline-block;
+          vertical-align: middle; }
+          body > header div nav ul li a {
+            padding: 1rem 0.5rem;
+            display: inline-block; }
+          body > header div nav ul li form input[type="text"] {
+            border: none;
+            padding: 0.25rem;
+            height: 1.5rem;
+            display: inline-block; }
+          body > header div nav ul li.button {
+            margin-left: -0.25rem; }
+            body > header div nav ul li.button a {
+              border: 1px solid #fff;
+              height: 1.5rem;
+              display: inline-block;
+              text-decoration: none;
+              padding: 0.25rem 0.5rem; }
+    body > header div:after {
+      content: "";
+      display: block;
+      clear: both; }
+
+body > section.content {
+  width: 100%;
+  max-width: 1024px;
+  margin: 4rem auto; }
+
+body > footer {
+  width: 100%;
+  max-width: 1024px;
+  margin: 3rem auto 0;
+  color: #ccc; }
+
+body.index table.parts {
+  display: block;
+  width: 100%; }
+  body.index table.parts:after {
+    content: "";
+    display: block;
+    clear: both; }
+  body.index table.parts thead {
+    display: none; }
+  body.index table.parts tbody {
+    display: block; }
+    body.index table.parts tbody tr {
+      border: 1px solid #333;
+      border-radius: 3px;
+      display: block;
+      width: 18%;
+      height: 10rem;
+      margin-right: 2%;
+      margin-bottom: 1rem;
+      float: left; }
+      body.index table.parts tbody tr td {
+        display: block; }
+        body.index table.parts tbody tr td.pn {
+          font-size: 1.5rem;
+          text-align: center;
+          background-color: #333;
+          color: #fff; }
+        body.index table.parts tbody tr td.source-pn, body.index table.parts tbody tr td.manufacturer {
+          text-align: center;
+          border-bottom: 1px solid #333;
+          text-transform: uppercase;
+          font-size: 0.8rem;
+          height: 1rem;
+          overflow: hidden; }
+        body.index table.parts tbody tr td.quantity {
+          width: 48%;
+          display: inline-block;
+          padding: 1rem 0 1rem 0.25rem; }
+          body.index table.parts tbody tr td.quantity:after {
+            content: " in stock"; }
+        body.index table.parts tbody tr td.location {
+          width: 48%;
+          display: inline-block;
+          text-align: right;
+          padding: 1rem 0.25rem 1rem 0; }
+        body.index table.parts tbody tr td.description {
+          padding: 1rem 0.25rem 0;
+          height: 4rem;
+          text-align: center;
+          overflow: hidden; }
+
+body.add section.previous {
+  border: 1px solid #333;
+  padding: 1rem;
+  margin: 1rem 5rem;
+  text-align: center; }
+  body.add section.previous .location {
+    display: block; }
+    body.add section.previous .location .broad, body.add section.previous .location .narrow {
+      display: inline;
+      font-size: 2rem;
+      color: #333; }
+body.add .scan, body.add .manual {
+  width: 48%;
+  float: left; }
+body.add .scan {
+  padding-right: 2rem;
+  margin-right: 2%; }
+
+/*# sourceMappingURL=style.css.map */

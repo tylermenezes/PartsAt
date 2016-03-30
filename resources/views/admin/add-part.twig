@@ -1,0 +1,42 @@
+{% extends "template.twig" %}
+{% block title %}Admin{% endblock %}
+{% block section %}add{% endblock %}
+{% block content %}
+    {% if previous %}
+        <section class="previous">
+            <p>Please store the {{ previous.pn }} {{ previous.description }} in</p>
+            <div class="location">
+                <span class="broad">{{ previous.locationBroadLetter }}</span>
+                <span class="narrow">{{ previous.location_narrow }}</span>
+            </div>
+        </section>
+    {% endif %}
+    <section class="scan">
+        <h2>Add a Part by Bag Barcode</h2>
+        <form method="post" action="/admin/add-part/scan">
+            <input type="text" name="quantity" id="quantity" placeholder="Quantity" pattern="\d+" required />
+            <input type="text" name="bag" id="bag" placeholder="Bag Barcode" required />
+            <input type="submit" value="Add Component" />
+        {{ csrf|raw }}</form>
+    </section>
+    <section class="manual">
+        <h2>Add a Part Manually</h2>
+        <form method="post" action="/admin/add-part/manual">
+            <input type="text" name="pn" id="pn" placeholder="Part Number" required />
+            <select name="source">
+                <option value="other" selected>Other</option>
+                <option value="mouser">Mouser</option>
+                <option value="digikey">Digikey</option>
+            </select>
+            <input type="text" name="source_pn" id="source_pn" placeholder="Source P/N" required />
+            <input type="text" name="description" id="description" placeholder="Description" />
+            <input type="text" name="manufacturer" id="manufacturer" placeholder="Manufacturer" />
+            <input type="text" name="quantity" id="quantity" placeholder="Quantity" pattern="\d+" required />
+            <input type="submit" value="Add Component" />
+        {{ csrf|raw }}</form>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){setTimeout(function(){$("#quantity").focus()}, 500)});
+    </script>
+{% endblock %}

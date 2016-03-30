@@ -1,0 +1,46 @@
+{% extends "template.twig" %}
+{% block section %}index{% endblock %}
+{% block content %}
+    {% if query %}
+        <h2>Results for "{{ query }}"</h2>
+    {% else %}
+        <h2>Most Recent Parts</h2>
+    {% endif %}
+    <table class="parts">
+        <thead>
+            <tr>
+                <th>Part</th>
+                <th>Manufacturer</th>
+                <th>Source PN</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for part in results %}
+                <tr>
+                    <td class="pn">
+                        {% if isAuthenticated %}<a href="/admin/edit-part/{{ part.id }}">{{ part.pn }}</a>{% else %}
+                        {{ part.pn }}{% endif %}
+                    </td>
+                    <td class="manufacturer">{{ part.manufacturer }}</td>
+                    <td class="source-pn">
+                        {% if part.source == 'digikey' %}
+                            <a href="http://www.digikey.com/product-search/en?keywords={{ part.source_pn|escape('url') }}"
+                               target="_blank">
+                        {% elseif part.source == 'mouser' %}
+                            <a href="http://www.mouser.com/Search/Refine.aspx?Keyword={{ part.source_pn|escape('url') }}"
+                               target="_blank">
+                        {% endif %}
+                        {{ part.source }}: {{ part.source_pn }}
+                        {% if part.source != "other" %}</a>{% endif %}
+                    </td>
+                    <td class="description">{{ part.description }}</td>
+                    <td class="quantity">{{ part.quantity }}</td>
+                    <td class="location">{{ part.locationBroadLetter }}{{ part.location_narrow }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

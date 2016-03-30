@@ -1,0 +1,8 @@
+{% extends "template.twig" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <form method="post">
+        <input type="password" name="password" id="password" required />
+        <input type="submit" value="Login" />
+    {{ csrf|raw }}</form>
+{% endblock %}

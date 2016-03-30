@@ -1,0 +1,10 @@
+{% extends "template.twig" %}
+{% block title %}Admin{% endblock %}
+{% block section %}delete{% endblock %}
+{% block content %}
+    <h1>Really delete {{ part.pn }}?</h1>
+    <p>Really?</p>
+    <form method="post">
+        <input type="submit" value="Really Delete {{ part.pn }}" />
+    {{ csrf|raw }}</form>
+{% endblock %}
