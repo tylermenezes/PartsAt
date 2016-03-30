@@ -18,6 +18,11 @@
             </nav>
         </div>
     </header>
+    {% if extension %}
+        <a class="extension-nag" href="{{ extension }}" target="_blank">
+            Install the extension to search {{ appName }} on Mouser and Digikey
+        </a>
+    {% endif %}
     <section class="content">
         {{ block('content') }}
     </section>

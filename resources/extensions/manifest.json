@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "%%APPNAME%%",
+    "version": "1.0.0",
+
+    "description": "%%DESCRIPTION%%",
+
+    "content_scripts": [
+        {
+            "matches": ["*://*.mouser.com/*", "*://*.digikey.com/*"],
+            "js": ["data/content-script.js"],
+            "run_at": "document_end"
+        },
+        {
+            "matches": ["*://parts.dev/*"],
+            "js": ["data/extension-report.js"],
+            "run_at": "document_end"
+        }
+    ],
+
+    "author": "Tyler Menezes <tylermenezes@protonmail.ch>",
+    "homepage_url": "http://parts.dev/"
+}

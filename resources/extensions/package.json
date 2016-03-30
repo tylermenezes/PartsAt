@@ -1,0 +1,19 @@
+{
+  "title": "%APPNAME%",
+  "name": "firefox",
+  "version": "1.0.0",
+  "description": "An extension which will show you which Mouser/Digikey parts are locally available.",
+  "main": "firefox.js",
+  "author": "Tyler Menezes <tylermenezes@protonmail.ch>",
+  "engines": {
+    "firefox": ">=30",
+    "fennec": ">=30"
+  },
+  "license": "Artistic",
+  "keywords": [
+    "%APPNAME%",
+    "parts",
+    "mouser",
+    "digikey"
+  ]
+}

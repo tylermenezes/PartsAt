@@ -65,6 +65,19 @@ body > header {
       display: block;
       clear: both; }
 
+.extension-nag {
+  width: 100%;
+  border-bottom: 1px solid #333;
+  color: #333;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  padding: 0.25rem 0;
+  display: block;
+  text-align: center; }
+
+body.with-extension .extension-nag {
+  display: none; }
+
 body > section.content {
   width: 100%;
   max-width: 1024px;

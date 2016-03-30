@@ -16,7 +16,8 @@ class Kernel extends HttpKernel
     protected $middleware = [
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
-        \PartsAt\Http\Middleware\ShareConfig::class
+        \PartsAt\Http\Middleware\ShareConfig::class,
+        \PartsAt\Http\Middleware\ShareExtensions::class
     ];
 
     /**
@@ -34,6 +35,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             'throttle:60,1',
+            \PartsAt\Http\Middleware\ApiResponse::class
         ],
     ];
 
