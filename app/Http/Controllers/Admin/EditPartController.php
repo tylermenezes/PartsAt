@@ -22,6 +22,8 @@ class EditPartController extends Controller {
         $part->description = $request->input('description');
         $part->manufacturer = $request->input('manufacturer');
         $part->quantity = $request->input('quantity');
+        $part->location_broad = $request->input('location_broad');
+        $part->location_narrow = $request->input('location_narrow');
         $part->save();
 
         return redirect('/admin/edit-part/'.$part->id);
