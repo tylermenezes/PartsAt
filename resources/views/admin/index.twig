@@ -2,4 +2,10 @@
 {% block title %}Admin{% endblock %}
 {% block content %}
     <h1>Stats</h1>
+    <ul>
+        <li>{{ stats.unique|number_format(0) }} part types</li>
+        <li>{{ stats.total|number_format(0) }} total parts</li>
+        <li>${{ stats.value|number_format(2) }} value</li>
+        <li>{{ stats.unpriced }} unpriced</li>
+    </ul>
 {% endblock %}
