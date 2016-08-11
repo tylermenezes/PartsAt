@@ -22,6 +22,8 @@ class AddPartController extends Controller {
         $part->quantity += $quantity;
         $part->save();
 
+        $part->autoPrice();
+
         \Session::flash('previouslyAddedPart', $part);
         return redirect('/admin/add-part');
     }
@@ -36,6 +38,8 @@ class AddPartController extends Controller {
         $part->manufacturer = $request->input('manufacturer');
         $part->quantity = $request->input('quantity');
         $part->save();
+
+        $part->autoPrice();
 
         \Session::flash('previouslyAddedPart', $part);
         return redirect('/admin/add-part');
