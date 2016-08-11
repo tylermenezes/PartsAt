@@ -15,7 +15,12 @@
         <input type="number" name="quantity" id="quantity" placeholder="Quantity" pattern="\d+" value="{{ part.quantity }}" required />
         <input type="text" name="location_broad" id="location_broad" placeholder="Broad Location" value="{{ part.location_broad }}" />
         <input type="text" name="location_narrow" id="location_narrow" placeholder="Narrow Location" value="{{ part.location_narrow }}" />
+        <input type="text" name="price" id="price" placeholder="Price" value="{{ part.price }}" />
+        <input type="text" name="price_bulk" id="price_bulk" placeholder="Bulk Price" value="{{ part.price_bulk }}" />
         <input type="submit" value="Update Component" />
     {{ csrf|raw }}</form>
     <a href="/admin/edit-part/{{ part.id }}/delete">Delete this?</a>
+    <form method="post" action="/admin/edit-part/{{ part.id }}/price">
+        <input type="submit" value="Autoprice" />
+    {{ csrf|raw }}</form>
 {% endblock %}

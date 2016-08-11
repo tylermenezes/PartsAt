@@ -40,4 +40,24 @@ class EditPartController extends Controller {
         $part->delete();
         return redirect('/');
     }
+
+    public function postPrice($partId)
+    {
+        $part = Models\Part::where('id', '=', $partId)->firstOrFail();
+        $pricing = Services\Octopart::getPricing($part->pn);
+
+        $part->price = isset($pricing[1]) ? $pricing[1] : null;
+        $part->price_bulk = isset($pricing[10]) ? $pricing[10] : null;
+
+        if (!isset($part->price) && isset($part->price_bulk)) {
+            $part->price = $part->price_bulk * 2;
+        }
+
+        if (!isset($part->price_bulk) && isset($part->price)) {
+            $part->price_bulk = $part->price * 0.9;
+        }
+
+        $part->save();
+        return redirect('/admin/edit-part/'.$partId);
+    }
 }
