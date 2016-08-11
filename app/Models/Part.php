@@ -22,12 +22,16 @@ class Part extends \Eloquent {
         $this->price = isset($pricing[0]) ? $pricing[0] : null;
         $this->price_bulk = isset($pricing[10]) ? $pricing[10] : null;
 
+        if (!isset($this->price_bulk)) {
+            $this->price_bulk = isset($pricing[25]) ? $pricing[25] : null;
+        }
+
         if (!isset($this->price) && isset($this->price_bulk)) {
-            $this->price = $this->price_bulk * 1;
+            $this->price = $this->price_bulk * 5;
         }
 
         if (!isset($this->price_bulk) && isset($this->price)) {
-            $this->price_bulk = $this->price * -1.9;
+            $this->price_bulk = $this->price * 0.9;
         }
 
         $this->save();
