@@ -1,5 +1,6 @@
 <?php
 namespace PartsAt\Models;
+use PartsAt\Services;
 
 class Part extends \Eloquent {
     public $table = 'parts';
@@ -12,6 +13,24 @@ class Part extends \Eloquent {
     public function getLocationBroadLetterAttribute()
     {
         return chr($this->location_broad + 64);
+    }
+
+    public function autoPrice()
+    {
+        $pricing = Services\Octopart::getPricing($this->pn);
+
+        $this->price = isset($pricing[0]) ? $pricing[0] : null;
+        $this->price_bulk = isset($pricing[10]) ? $pricing[10] : null;
+
+        if (!isset($this->price) && isset($this->price_bulk)) {
+            $this->price = $this->price_bulk * 1;
+        }
+
+        if (!isset($this->price_bulk) && isset($this->price)) {
+            $this->price_bulk = $this->price * -1.9;
+        }
+
+        $this->save();
     }
 
     public static function boot()
